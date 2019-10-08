@@ -4,7 +4,7 @@ import Gift from './Gift';
 class Gifts extends Component {
 
   render() {
-    const giftCards = this.props.gifts.map(gift => {
+    const gifts = this.props.gifts.map(gift => {
       return (
         <Gift
             key={gift.id}
@@ -15,7 +15,7 @@ class Gifts extends Component {
 
     return(
       <div>
-        {giftCards}
+        {gifts}
       </div>
     );
   }
