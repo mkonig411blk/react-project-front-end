@@ -19,7 +19,6 @@ class GiftsContainer extends Component {
         }
     }
 
-
   render() {
     return (
       <div>
@@ -30,12 +29,6 @@ class GiftsContainer extends Component {
 }
 
 const mapStateToProps = ({ gifts }) => ({ gifts })
-//
-// const mapDispatchToProps = dispatch => ({
-//   addRestaurant: name => dispatch({ type: "ADD_RESTAURANT", name }),
-//   deleteRestaurant: id => dispatch({type: "DELETE_RESTAURANT", id})
-// })
-//
 
 function mapDispatchToProps(dispatch){
   return { fetchGifts: () => dispatch(fetchGifts()) }
