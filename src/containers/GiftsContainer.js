@@ -11,16 +11,16 @@ class GiftsContainer extends Component {
     }
 
   render() {
-      console.log(this.props.gifts)
+      console.log(this.props)
     return (
       <div>
-        <Gifts gifts={this.props.gifts} />
+        <Gifts gifts={this.props.fetchedGifts} />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ gifts }) => ({ gifts })
+const mapStateToProps = ({ gifts }) => gifts
 
 function mapDispatchToProps(dispatch){
   return { fetchGifts: () => dispatch(fetchGifts()) }

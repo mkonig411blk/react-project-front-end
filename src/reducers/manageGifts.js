@@ -26,7 +26,8 @@ export default function manageGifts(state = {
 
   }
 };
-//
+
+// WITHOUT REVIEWS
 // const manageGifts = (state = { gifts: [] }, action) => {
 //   switch(action.type) {
 //     case 'GIFTS_COMPLETE':

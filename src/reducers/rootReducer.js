@@ -1,6 +1,9 @@
 import {combineReducers} from 'redux';
+import uuid from 'uuid';
 
-const usersReducer = (state = false , action) => {
+const userReducerInitialState = {user: null }
+
+const usersReducer = (state = userReducerInitialState , action) => {
   switch(action.type) {
     case 'ADD_USER':
       return {
@@ -12,12 +15,30 @@ const usersReducer = (state = false , action) => {
   }
 }
 
-const giftsReducer = (state = [], action) => {
+let giftReducerInitialState = {fetchedGifts: [], reviews: []}
+
+const giftsReducer = (state = giftReducerInitialState, action) => {
   switch(action.type) {
     case 'GIFTS_COMPLETE':
-        return [...state, action.gifts];
-    default:
-      return state;
+        return {...state,
+            fetchedGifts: action.gifts
+        };
+        case 'REVIEWS_COMPLETE':
+            return {
+                ...state,
+                reviews: action.gifts.reviews
+            }
+        case 'ADD_REVIEW':
+            const review = { text: action.review.text, giftId: action.review.giftId, id: uuid() };
+            return { ...state,
+                reviews: [...state.reviews, review]
+            }
+        case 'DELETE_REVIEW':
+            const reviews = state.reviews.filter(review => review.id !== action.id);
+            return {...state, reviews }
+        default:
+          return state;
+
   }
 }
 

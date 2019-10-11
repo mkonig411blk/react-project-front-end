@@ -19,4 +19,4 @@ class Review extends Component {
 
 };
 
-export default Review;
+export default Review

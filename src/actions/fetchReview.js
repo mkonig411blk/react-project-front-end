@@ -2,7 +2,7 @@
 const GIFT_URL = 'http://localhost:3000/gift/'
 
 // where do I get giftID ??
-// is add_review supposed to be part of same function or do i create a new function?
+// fetch with get request
 export function fetchReviews(giftId) {
   return (dispatch) => {
     fetch(GIFT_URL + giftId + '/reviews')

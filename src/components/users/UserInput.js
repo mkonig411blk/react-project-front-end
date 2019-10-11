@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addUser } from '.../actions/addUser';
+import { addUser } from './../../actions/addUser';
 
 const USERS_URL = "http://localhost:3000/users"
 
@@ -34,11 +34,11 @@ class UserInput extends React.Component {
         )
     }
 }
-// 
-// function mapDispatchToProps(dispatch){
-//   return { addUser: (name) => dispatch(addUser(name)) }
-// }
-//
-// export default connect(null, mapDispatchToProps)(UserInput)
 
-export default UserInput
+function mapDispatchToProps(dispatch){
+  return { addUser: (name) => dispatch(addUser(name)) }
+}
+
+export default connect(null, mapDispatchToProps)(UserInput)
+
+// export default UserInput

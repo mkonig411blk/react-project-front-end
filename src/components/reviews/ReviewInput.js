@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 class ReviewInput extends Component {
 
   state = {
@@ -11,9 +12,10 @@ class ReviewInput extends Component {
     });
   }
 
+// addReview function & giftId props passed down from ReviewsContainer
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addReview({text: this.state.text, giftId: this.props.giftId });
+    this.props.addReview({text: this.state.text, giftId: this.props.giftId, user: this.props.user });
     this.setState({
       text: '',
     });
@@ -23,7 +25,7 @@ class ReviewInput extends Component {
     return (
      <div>
         <form onSubmit={this.handleOnSubmit} >
-          <label>Add Review</label>
+          <label>Add Review: </label>
           <input
             type="text"
             value={this.state.text}
@@ -35,4 +37,6 @@ class ReviewInput extends Component {
   }
 };
 
-export default ReviewInput;
+const mapStateToProps = ({ user }) => user
+
+export default connect(mapStateToProps)(ReviewInput)
