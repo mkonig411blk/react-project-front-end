@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { addUser } from '.../actions/addUser';
+import { connect } from 'react-redux';
 
 const USERS_URL = "http://localhost:3000/users"
 
@@ -17,10 +19,7 @@ class UserInput extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault()
         this.props.addUser(this.state.name);
-        // instead of resetting state, hide form
-        this.setState({
-          name: ''
-        });
+        // import reroute component, reroute here
       }
 
     render(){
@@ -36,4 +35,8 @@ class UserInput extends React.Component {
     }
 }
 
-export default UserInput;
+function mapDispatchToProps(dispatch){
+  return { addUser: (name) => dispatch(addUser(name)) }
+}
+
+export default connect(null, mapDispatchToProps)(UserInput)

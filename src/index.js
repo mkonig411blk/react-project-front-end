@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 // import rootReducer from './reducers';
 import manageGifts from './reducers/manageGifts.js'
 import './index.css';
+import UserInput from './components/users/UserInput'
 
 const store = createStore(manageGifts, applyMiddleware(thunk));
 
