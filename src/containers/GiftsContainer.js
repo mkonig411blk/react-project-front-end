@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 // import RestaurantInput from '../components/restaurants/RestaurantInput'
-import Gifts from '../components/gifts/Gifts'
-import { connect } from 'react-redux'
-import { fetchGifts } from '../actions/fetchGifts'
+import Gifts from '../components/gifts/Gifts';
+import { connect } from 'react-redux';
+import { fetchGifts } from '../actions/fetchGifts';
 
 class GiftsContainer extends Component {
 
@@ -10,19 +10,11 @@ class GiftsContainer extends Component {
         this.props.fetchGifts()
     }
 
-    handleLoading = () => {
-        console.log(this.props.loading)
-        if(this.props.loading) {
-            return <div>Loading...</div>
-        } else {
-            return <Gifts gifts={this.props.gifts} />
-        }
-    }
-
   render() {
+      console.log(this.props.gifts)
     return (
       <div>
-        {this.handleLoading()}
+        <Gifts gifts={this.props.gifts} />
       </div>
     )
   }
@@ -34,4 +26,4 @@ function mapDispatchToProps(dispatch){
   return { fetchGifts: () => dispatch(fetchGifts()) }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GiftsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(GiftsContainer);

@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-// import rootReducer from './reducers';
+// import rootReducer from './reducers/rootReducer.js'
 import manageGifts from './reducers/manageGifts.js'
+import manageUsers from './reducers/manageUsers.js'
 import './index.css';
-import UserInput from './components/users/UserInput'
 
 const store = createStore(manageGifts, applyMiddleware(thunk));
 

@@ -12,7 +12,7 @@ class App extends Component {
         return (
           <Router>
             <div className="App">
-                <Route path="/" component={UserInput} />
+                <GiftsContainer />
             </div>
          </Router>
         )
@@ -20,3 +20,6 @@ class App extends Component {
 }
 
 export default App;
+// <Route path="/" component={UserInput} />
+// redirect to /gifts link in the addUser action
+// <Route path= "/gifts" component={GiftsContainer} />
