@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import Gift from './Gift';
+import { connect } from 'react-redux';
+import { fetchGifts } from '../../actions/fetchGifts';
 
 class Gifts extends Component {
 
+    componentDidMount() {
+        this.props.fetchGifts()
+    }
+
+
   render() {
-    const gifts = this.props.gifts.map(gift => {
+    const gifts = this.props.fetchedGifts.map(gift => {
       return (
         <Gift
             key={gift.id}
@@ -21,4 +28,10 @@ class Gifts extends Component {
   }
 };
 
-export default Gifts;
+const mapStateToProps = ({ gifts }) => gifts
+
+function mapDispatchToProps(dispatch){
+  return { fetchGifts: () => dispatch(fetchGifts()) }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Gifts);

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from './../../actions/addUser';
-
-const USERS_URL = "http://localhost:3000/users"
+import { withRouter } from "react-router-dom";
 
 class UserInput extends React.Component {
 
@@ -18,7 +17,7 @@ class UserInput extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addUser(this.state.name);
+        this.props.addUser(this.state.name, this.prop.history);
         // import reroute component, reroute here
       }
 
@@ -39,6 +38,4 @@ function mapDispatchToProps(dispatch){
   return { addUser: (name) => dispatch(addUser(name)) }
 }
 
-export default connect(null, mapDispatchToProps)(UserInput)
-
-// export default UserInput
+export default connect(null, mapDispatchToProps)(withRouter(UserInput))

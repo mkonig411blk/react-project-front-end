@@ -12,7 +12,8 @@ class App extends Component {
         return (
           <Router>
             <div className="App">
-                <GiftsContainer />
+                <Route exact path="/" component={UserInput} />
+                <Route exaxt path= "/gifts" component={GiftsContainer} />
             </div>
          </Router>
         )
