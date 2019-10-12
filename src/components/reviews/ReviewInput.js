@@ -15,8 +15,12 @@ class ReviewInput extends Component {
 // addReview function & giftId props passed down from ReviewsContainer
   handleOnSubmit = event => {
     event.preventDefault();
-    // console.log(this.state.text, this.props.giftId, this.props.user)
-    this.props.addReview({text: this.state.text, giftId: this.props.giftId, user: this.props.user});
+    this.props.addReview(
+        {text: this.state.text,
+        giftId: this.props.giftId,
+        gift: this.props.gift,
+        user: this.props.user,
+        userId: this.props.user.id});
     this.setState({
       text: '',
     });
