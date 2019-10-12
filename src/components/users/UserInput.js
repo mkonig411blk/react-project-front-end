@@ -17,7 +17,7 @@ class UserInput extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addUser(this.state.name, this.prop.history);
+        this.props.addUser(this.state.name);
         // import reroute component, reroute here
       }
 

@@ -1,7 +1,7 @@
 // move URL to root and then import
 const USERS_URL = 'http://localhost:3000/users'
 
-export function addUser(name, history) {
+export function addUser(name) {
   return (dispatch) => {
     fetch(USERS_URL, {
         method: "POST",
@@ -16,7 +16,7 @@ export function addUser(name, history) {
       .then(responseJSON => {
           dispatch({type: 'ADD_USER', user: responseJSON});
       })
-      .then(response => history.push("/gifts"))
+      // .then(response => history.push("/gifts"))
   }
 
 }

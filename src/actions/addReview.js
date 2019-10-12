@@ -1,9 +1,8 @@
 // move URL to root and then import
-const GIFT_URL = 'http://localhost:3000/gift/'
+const GIFT_URL = 'http://localhost:3000/gifts/'
 
-// where do I get giftID & text?? from reviewinput where it is called
 // fetch with post request
-export function addReviews(giftId, text, user) {
+export function addReview(giftId, text, user) {
   return (dispatch) => {
     fetch(GIFT_URL + giftId + '/reviews', {
         method: "POST",
@@ -11,13 +10,13 @@ export function addReviews(giftId, text, user) {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        // is text properly passed in here?
-        body: JSON.stringify({text: text, gift_id: giftId, user_id: user.id})
+        body: JSON.stringify({text: text, gift_id: giftId, user: user})
         }
     )
+    .then(console.log)
       .then(response => response.json())
       .then(responseJSON => {
-          dispatch({type: 'ADD_REVIEW', reviews: responseJSON});
+          dispatch({type: 'ADD_REVIEW', review: responseJSON});
       })
   }
 }

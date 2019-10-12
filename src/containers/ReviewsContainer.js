@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
+import { addReview } from '../actions/addReview';
 
 // giftId passed as prop from Gift component
 // addReview & deleteReview functions passed in from store using mapDispatchToProps
@@ -25,12 +26,15 @@ class ReviewsContainer extends Component {
   }
 }
 
+const mapStateToProps = ({reviews}) => {
+  return {reviews}
+}
 
 const mapDispatchToProps = dispatch => {
     return {
-      addReview: review => dispatch({type: 'ADD_REVIEW', review}),
-      deleteReview: id => dispatch({type: 'DELETE_REVIEW', id})
+      addReview: ({text, giftId, user}) => dispatch(addReview({text, giftId, user}))
+      // deleteReview: id => dispatch({type: 'DELETE_REVIEW', id})
   }
 }
 
-export default connect(null, mapDispatchToProps)(ReviewsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)
