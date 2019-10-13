@@ -12,9 +12,8 @@ class Review extends Component {
     return (
       <div>
         <li>
-          {review.user.name}: {review.text}
+          {review.user.name}: "{review.text}" <button onClick={this.handleOnClick}> X </button>
         </li>
-        <button onClick={this.handleOnClick}> X </button>
       </div>
     );
   }

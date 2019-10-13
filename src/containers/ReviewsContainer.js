@@ -3,14 +3,21 @@ import ReviewInput from '../components/reviews/ReviewInput'
 import Reviews from '../components/reviews/Reviews'
 import { connect } from 'react-redux'
 import { addReview } from '../actions/addReview';
+import { deleteReview } from '../actions/deleteReview';
+import { fetchReviews } from '../actions/fetchReviews';
 
 // giftId passed as prop from Gift component
 // addReview & deleteReview functions passed in from store using mapDispatchToProps
 // reviews passed in from store using mapStateToProps
 class ReviewsContainer extends Component {
 
+    componentDidMount() {
+        this.props.fetchReviews()
+    }
+
   render() {
     return (
+
       <div>
         <ReviewInput
           addReview={this.props.addReview}
@@ -18,25 +25,25 @@ class ReviewsContainer extends Component {
           gift={this.props.gift}
         />
         <Reviews
-          reviews={this.props.gift.reviews}
+          allReviews={this.props.reviews}
           giftId={this.props.gift.id}
           gift={this.props.gift}
-          // deleteReview={this.props.deleteReview}
+          deleteReview={this.props.deleteReview}
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({reviews}) => {
-  return {reviews}
-}
+const mapStateToProps = ({ reviews }) => reviews
 
 const mapDispatchToProps = dispatch => {
     return {
-      addReview: ({text, giftId, gift, user, userId}) => dispatch(addReview({text, giftId, gift, user, userId}))
-      // deleteReview: id => dispatch({type: 'DELETE_REVIEW', id})
+      addReview: ({text, giftId, gift, user, userId}) => dispatch(addReview({text, giftId, gift, user, userId})),
+      deleteReview: (id) => dispatch(deleteReview(id)),
+      fetchReviews: () => dispatch(fetchReviews())
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer)

@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import uuid from 'uuid';
 
-const userReducerInitialState = {user: null }
+const userReducerInitialState = {user: null}
 
 const usersReducer = (state = userReducerInitialState , action) => {
   switch(action.type) {
@@ -15,7 +15,7 @@ const usersReducer = (state = userReducerInitialState , action) => {
   }
 }
 
-let giftReducerInitialState = {fetchedGifts: [], reviews: []}
+let giftReducerInitialState = {fetchedGifts: []}
 
 const giftsReducer = (state = giftReducerInitialState, action) => {
   switch(action.type) {
@@ -23,10 +23,20 @@ const giftsReducer = (state = giftReducerInitialState, action) => {
         return {...state,
             fetchedGifts: action.gifts
         };
+        default:
+          return state;
+
+  }
+}
+
+let reviewReducerInitialState = {reviews: []}
+
+const reviewsReducer = (state = reviewReducerInitialState, action) => {
+  switch(action.type) {
         case 'REVIEWS_COMPLETE':
             return {
                 ...state,
-                reviews: action.gifts.reviews
+                reviews: action.reviews
             }
         case 'ADD_REVIEW':
             const review = { text: action.review.text, giftId: action.review.giftId, user: action.review.user, id: uuid() };
@@ -44,7 +54,8 @@ const giftsReducer = (state = giftReducerInitialState, action) => {
 
 const rootReducer=combineReducers({
   gifts: giftsReducer,
-  user: usersReducer
+  user: usersReducer,
+  reviews: reviewsReducer
 })
 
 export default rootReducer;
