@@ -17,15 +17,14 @@ class UserInput extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.addUser(this.state.name);
-        // import reroute component, reroute here
+        this.props.addUser(this.state.name, this.props.history);
       }
 
     render(){
         return(
             <div id="login-form">
                 <form onSubmit={this.handleOnSubmit}>
-                    <label>To leave a comment, enter your username:</label>
+                    <label>To get started, enter your username:</label>
                     <input type="text" name="name" value={this.state.name} onChange={this.handleOnChange}/>
                     <input type="submit" value="Login"/>
                 </form>
@@ -35,7 +34,7 @@ class UserInput extends React.Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return { addUser: (name) => dispatch(addUser(name)) }
+  return { addUser: (name, history) => dispatch(addUser(name, history)) }
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(UserInput))

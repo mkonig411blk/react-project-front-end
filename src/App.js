@@ -9,11 +9,12 @@ class App extends Component {
 
 
   render () {
+      console.log(this.history)
         return (
           <Router>
             <div className="App">
-                <UserInput />
-                <GiftsContainer />
+                <Route exact path="/" component={UserInput}  history={this.history}/>
+                <Route exact path= "/gifts" component={GiftsContainer}/>
             </div>
          </Router>
         )
@@ -21,6 +22,3 @@ class App extends Component {
 }
 
 export default App;
-// <Route path="/" component={UserInput} />
-// redirect to /gifts link in the addUser action
-// <Route path= "/gifts" component={GiftsContainer} />

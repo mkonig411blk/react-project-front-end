@@ -39,7 +39,7 @@ const reviewsReducer = (state = reviewReducerInitialState, action) => {
                 reviews: action.reviews
             }
         case 'ADD_REVIEW':
-            const review = { text: action.review.text, giftId: action.review.giftId, user: action.review.user, id: uuid() };
+            const review = { text: action.review.text, gift_id: action.review.gift_id, user: action.review.user, id: uuid() };
             return { ...state,
                 reviews: [...state.reviews, review]
             }

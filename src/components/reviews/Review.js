@@ -4,6 +4,7 @@ class Review extends Component {
 // 3 props have been passed to Review: index, review object, deleteReview function
 
 handleOnClick = () => {
+    console.log(this.props.review.id)
   this.props.deleteReview(this.props.review.id)
 }
 
