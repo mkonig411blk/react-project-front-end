@@ -5,14 +5,13 @@ export function deleteReview(reviewId) {
     fetch(REVIEWS_URL + '/' + reviewId, {
       method:'DELETE',
       headers:{
-        "Content-Type":"application/json",
-        "Accept": "application/json"
-      }
-      // body: JSON.stringify({id: reviewId})
+        "Content-Type":"application/json"
+    },
+      body: JSON.stringify({reviewId})
     })
     .then(response => response.json())
     .then(responseJSON => {
-        dispatch({type:"DELETE_REVIEW", review: responseJSON});
+        dispatch({type:"DELETE_REVIEW", reviewId});
     })
 
   }

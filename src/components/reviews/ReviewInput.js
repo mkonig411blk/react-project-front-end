@@ -12,7 +12,7 @@ class ReviewInput extends Component {
     });
   }
 
-// addReview function & giftId props passed down from ReviewsContainer
+// addReview function, giftId, & gift props passed down from ReviewsContainer
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.addReview(

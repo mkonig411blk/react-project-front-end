@@ -27,7 +27,6 @@ class ReviewsContainer extends Component {
         <Reviews
           allReviews={this.props.reviews}
           giftId={this.props.gift.id}
-          gift={this.props.gift}
           deleteReview={this.props.deleteReview}
         />
       </div>
