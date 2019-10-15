@@ -1,4 +1,4 @@
-# React Redux Portfolio Project: Gift Finder 2.0
+# React Redux Portfolio Project: Gift Finder 2.0 (Frontend)
 
 # DESCRIPTION
 
