@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Gifts from '../components/gifts/Gifts';
 
 // functional component with ES6

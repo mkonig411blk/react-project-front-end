@@ -1,9 +1,8 @@
-// move URL to root and then import
-const USERS_URL = 'http://localhost:3000/users'
+import baseUrl from '../fetchUrl'
 
 export function addUser(name, history) {
   return (dispatch) => {
-    fetch(USERS_URL, {
+    fetch(baseUrl + '/users', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

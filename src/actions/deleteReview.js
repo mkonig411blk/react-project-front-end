@@ -1,8 +1,8 @@
-const REVIEWS_URL = 'http://localhost:3000/reviews'
+import baseUrl from '../fetchUrl'
 
 export function deleteReview(reviewId) {
   return dispatch => {
-    fetch(REVIEWS_URL + '/' + reviewId, {
+    fetch(baseUrl + '/reviews/' + reviewId, {
       method:'DELETE',
       headers:{
         "Content-Type":"application/json"

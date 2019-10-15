@@ -1,11 +1,9 @@
-// move URL to root and then import
-const GIFT_URL = 'http://localhost:3000/gifts/'
-const REVIEW_URL = 'http://localhost:3000/reviews'
+import baseUrl from '../fetchUrl'
 
 // fetch with post request
 export function addReview({giftId, userId, gift, text, user}) {
   return (dispatch) => {
-    fetch(REVIEW_URL, {
+    fetch(baseUrl + '/reviews', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

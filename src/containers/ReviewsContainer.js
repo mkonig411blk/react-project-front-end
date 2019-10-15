@@ -6,7 +6,7 @@ import { addReview } from '../actions/addReview';
 import { deleteReview } from '../actions/deleteReview';
 import { fetchReviews } from '../actions/fetchReviews';
 
-// giftId passed as prop from Gift component
+// gift object passed as prop from Gift component
 // addReview & deleteReview functions passed in from store using mapDispatchToProps
 // reviews passed in from store using mapStateToProps
 class ReviewsContainer extends Component {

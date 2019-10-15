@@ -1,10 +1,9 @@
-// move URL to root and then import
-const REVIEWS_URL = 'http://localhost:3000/reviews'
+import baseUrl from '../fetchUrl'
 
 // fetch with get request
 export function fetchReviews() {
   return (dispatch) => {
-    fetch(REVIEWS_URL)
+    fetch(baseUrl + '/reviews')
       .then(response => response.json())
       .then(responseJSON => {
           dispatch({type: 'REVIEWS_COMPLETE', reviews: responseJSON});
