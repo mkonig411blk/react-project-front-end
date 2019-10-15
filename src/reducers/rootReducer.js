@@ -39,11 +39,12 @@ const reviewsReducer = (state = reviewReducerInitialState, action) => {
                 reviews: action.reviews
             }
         case 'ADD_REVIEW':
-            const review = { text: action.review.text, gift_id: action.review.gift_id, user: action.review.user, id: uuid() };
+            // const review = { text: action.review.text, gift_id: action.review.gift_id, user: action.review.user, id: uuid() };
             return { ...state,
-                reviews: [...state.reviews, review]
+                reviews: [...state.reviews, action.review]
             }
         case 'DELETE_REVIEW':
+            // iterate through existing reviews and remove the review where id = to reviewId to be deleted
             const reviews = state.reviews.filter(review => review.id !== action.reviewId);
             return {...state, reviews }
         default:

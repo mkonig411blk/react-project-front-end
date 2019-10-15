@@ -2,6 +2,7 @@ import baseUrl from '../fetchUrl'
 
 export function deleteReview(reviewId) {
   return dispatch => {
+      dispatch({type:"DELETE_REVIEW", reviewId})
     fetch(baseUrl + '/reviews/' + reviewId, {
       method:'DELETE',
       headers:{
@@ -9,10 +10,5 @@ export function deleteReview(reviewId) {
     },
       body: JSON.stringify({reviewId})
     })
-    .then(response => response.json())
-    .then(responseJSON => {
-        dispatch({type:"DELETE_REVIEW", reviewId});
-    })
-
   }
 }
